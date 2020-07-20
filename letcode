@@ -1,0 +1,37 @@
+import java.util.*;
+
+
+public class Solution {
+    /**
+     * 
+     * @param x int整型 
+     * @return int整型
+     */
+    public int reverse (int x) {
+        // write code here
+        int reverseInt;//输出数据
+        String s = x+"";//将证书转换为字符串
+        
+        char[] xchar = s.toCharArray();//证书的字符数组
+        if (x<0){
+            int i=1;//整数小于0时更换顺序
+            xchar = swap(xchar, i);
+        }else{
+            int i = 0;//整数大于0时更换顺序
+            xchar = swap(xchar, i);
+        }
+
+        String reverS = new String(xchar);//更换顺序的字符串
+        reverseInt = Integer.parseInt(reverS);//反转后的整数
+        return reverseInt;
+    }
+    public char[] swap(char[] chs,int i ){
+        char temp;
+        while(i<chs.length-1-i){
+            temp = chs[i];
+            chs[i] = chs[chs.length-1-i];
+            chs[chs.length-1-i]=temp;
+        }
+        return chs;
+    }
+}
